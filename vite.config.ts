@@ -1,6 +1,5 @@
 import eslintPlugin from '@nabla/vite-plugin-eslint';
 import react from '@vitejs/plugin-react';
-import path from 'path';
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker'
 import svgr from 'vite-plugin-svgr';
@@ -36,14 +35,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '~assets': '/src/assets', // Alias pour accéder facilement aux ressources dans src/assets
-      '@': path.resolve(__dirname, './src'), // point vers src
+     // '@': path.resolve(__dirname, './src'), // point vers src
     },
   },
   css: {
     preprocessorOptions: {
       scss: {
         api: 'modern-compiler',
-        additionalData: `@use "@/main.scss";`, // Import global du fichier SCSS
+        additionalData: `@use "/src/main.scss";`, // Import global du fichier SCSS
       },
     },
   },
